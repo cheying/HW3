@@ -12,15 +12,49 @@
         <title>Salary Information</title>
     </head>
     <%
-        int hoursWorked = Integer.parseInt(request.getParameter("hours"));
-        int payRate = Integer.parseInt(request.getParameter("payRate"));
-        int preTaxDeduct = Integer.parseInt(request.getParameter("preTax"));
-        int postTaxDeduct = Integer.parseInt(request.getParameter("postTax"));
-        int hours = Integer.parseInt(request.getParameter("hours"));
-        int hours = Integer.parseInt(request.getParameter("hours"));
-        int hours = Integer.parseInt(request.getParameter("hours"));
-        int hours = Integer.parseInt(request.getParameter("hours"));
-        int hours = Integer.parseInt(request.getParameter("hours"));
+        double hoursWorked = Integer.parseInt(request.getParameter("hours"));
+        double payRate = Integer.parseInt(request.getParameter("payRate"));
+        double preTaxDeduct = Integer.parseInt(request.getParameter("preTax"));
+        double postTaxDeduct = Integer.parseInt(request.getParameter("postTax"));
+        double regularHours = 40;
+        double otHours = 0;
+        double otPayRate = 0;
+        double otPay = 0;
+        double regularPay;
+        double taxablePay;
+        double grossPay;
+        double taxAmount;
+        double postTaxPay;
+        double netPay;
+        
+            if(hoursWorked > 40)
+                {
+                    otPayRate = payRate * 1.5;
+                    otHours = hoursWorked - 40;
+                    regularHours = 40;
+                    otPay = otHours * otPayRate;
+                    regularPay = regularHours * payRate;
+                    grossPay = regularPay + otPay;
+                }
+            else
+                {
+                    grossPay = hoursWorked * payRate;
+                }
+            
+            taxablePay = grossPay - preTaxDeduct;
+      
+            if(grossPay < 500)
+                {
+                    taxAmount = taxablePay * .18;
+                }
+            else
+                {
+                    taxAmount = taxablePay * .22;
+                }
+            
+            postTaxPay = taxablePay - taxAmount;
+            netPay = postTaxPay - postTaxDeduct;
+            
         %>
     
     
@@ -39,15 +73,15 @@
                 </tr>
                 <tr>
                     <td># Hours Overtime:</td>
-                    <td></td>
+                    <td><%= otHours %></td>
                 </tr>
                 <tr>
                     <td>Overtime Hourly Rate:</td>
-                    <td></td>
+                    <td><%= otPayRate %></td>
                 </tr>
                 <tr>
                     <td>Gross Pay:</td>
-                    <td></td>
+                    <td><%= grossPay %></td>
                 </tr>
                 <tr>
                     <td>Pre-tax Deduct:</td>
@@ -55,23 +89,23 @@
                 </tr>
                 <tr>
                     <td>Pre-tax Pay:</td>
-                    <td></td>
+                    <td><%= taxablePay %></td>
                 </tr>
                 <tr>
                     <td>Tax Amount:</td>
-                    <td></td>
+                    <td><%= taxAmount %></td>
                 </tr>
                 <tr>
                     <td>Post-tax Pay:</td>
-                    <td><%= postTaxDeduct %></td>
+                    <td><%= postTaxPay %></td>
                 </tr>
                 <tr>
                     <td>Post-tax Deduct:</td>
-                    <td></td>
+                    <td><%= postTaxDeduct %></td>
                 </tr>
                 <tr>
                     <td>Net Pay:</td>
-                    <td></td>
+                    <td><%= netPay %></td>
                 </tr>  
             </tbody>
         </table>
