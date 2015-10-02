@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Salary Information</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <%
         double hoursWorked = Integer.parseInt(request.getParameter("hours"));
@@ -59,53 +60,57 @@
     
     
     <body>
-        <h1>Salary Information</h1>
         
-        <table border="1">
+        <table align="center">
             <tbody>
                 <tr>
-                    <td>Total Hours Worked:</td>
+                    <td>
+                        <h1>Salary Information</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tag">Total Hours Worked:</td>
                     <td><%= hoursWorked %></td>
                 </tr>
                 <tr>
-                    <td>Hourly Rate:</td>
-                    <td><%= payRate %></td>
+                    <td class="tag">Hourly Rate:</td>
+                    <td class="money"><%= payRate %></td>
                 </tr>
                 <tr>
-                    <td># Hours Overtime:</td>
+                    <td class="tag"># Hours Overtime:</td>
                     <td><%= otHours %></td>
                 </tr>
                 <tr>
-                    <td>Overtime Hourly Rate:</td>
-                    <td><%= otPayRate %></td>
+                    <td class="tag">Overtime Hourly Rate:</td>
+                    <td class="money"><%= otPayRate %></td>
                 </tr>
                 <tr>
-                    <td>Gross Pay:</td>
-                    <td><%= grossPay %></td>
+                    <td class="tag">Gross Pay:</td>
+                    <td class="money"><%= grossPay %></td>
                 </tr>
                 <tr>
-                    <td>Pre-tax Deduct:</td>
-                    <td><%= preTaxDeduct %></td>
+                    <td class="tag">Pre-tax Deduct:</td>
+                    <td class="money"><%= preTaxDeduct %></td>
                 </tr>
                 <tr>
-                    <td>Pre-tax Pay:</td>
-                    <td><%= taxablePay %></td>
+                    <td class="tag">Pre-tax Pay:</td>
+                    <td class="money"><%= taxablePay %></td>
                 </tr>
                 <tr>
-                    <td>Tax Amount:</td>
-                    <td><%= taxAmount %></td>
+                    <td class="tag">Tax Amount:</td>
+                    <td class="money"><%= taxAmount %></td>
                 </tr>
                 <tr>
-                    <td>Post-tax Pay:</td>
-                    <td><%= postTaxPay %></td>
+                    <td class="tag">Post-tax Pay:</td>
+                    <td class="money"><%= postTaxPay %></td>
                 </tr>
                 <tr>
-                    <td>Post-tax Deduct:</td>
-                    <td><%= postTaxDeduct %></td>
+                    <td class="tag">Post-tax Deduct:</td>
+                    <td class="money"><%= postTaxDeduct %></td>
                 </tr>
                 <tr>
-                    <td>Net Pay:</td>
-                    <td><%= netPay %></td>
+                    <td class="tag">Net Pay:</td>
+                    <td class="money"><%= netPay %></td>
                 </tr>  
             </tbody>
         </table>

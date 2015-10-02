@@ -10,16 +10,24 @@ and open the template in the editor.
 
 h1{
     text-align: center;
+    color: #FFFFFF;
+    background-color: #3399FF;
     
 }
 
 table{
-    background-color: ;
-    
+    background-color: #3399FF;
+    color: #FFFFFF;
+    padding: 0;
+    border: 0;
     
 }
 
-td{
-    
+td.money{
+    text-align: left;
+}
+
+td.tag{
+    text-align: right;
     
 }
